@@ -8,7 +8,7 @@ export const POST = async (req) => {
     try {
         const { topic, prompt } = await req.json();
         const response = await openai.chat.completions.create({
-            model: process.env.GPT_MODEL,
+            model: process.env.GPT_MODEL || "gpt-4o-mini",
             messages: [{
                 role: 'user',
                 content: `"You are an intelligent assistant tasked with verifying whether a provided prompt is clearly related to a specific topic and understandable to humans. Your response should follow this format:
