@@ -1,10 +1,9 @@
 import User from "@/models/user";
 import { connectToDB } from "@/utils/database";
-import { signIn } from "next-auth/react";
 
 export const POST = async ( req ) => {
     try {
-        connectToDB();
+        await connectToDB();
 
         const { userId, newName } = await req.json();
         

@@ -9,7 +9,7 @@ import User from '@/models/user';
 //     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 // })
 
-const handler = NextAuth({
+const authOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_ID,
@@ -81,6 +81,8 @@ const handler = NextAuth({
             }
         }
     },
-})
+}
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST}
